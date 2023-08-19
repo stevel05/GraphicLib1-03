@@ -1,7 +1,8 @@
-﻿Type=Class
-Version=4.7
+﻿B4J=true
+Group=Default Group
 ModulesStructureVersion=1
-B4J=true
+Type=Class
+Version=5.51
 @EndOfDesignText@
 'Class Module
 Sub Class_Globals
@@ -17,7 +18,7 @@ Public Sub Create(StartX As Double, StartY As Double, EndX As Double, EndY As Do
 	Dim StopsList As List
 	StopsList.Initialize
 	For Each S As GLStop In Stops
-		StopsList.Add(S.getObject)
+		StopsList.Add(S.GetObject)
 	Next
 	Dim JO As JavaObject
 	JO.InitializeStatic("javafx.scene.paint.CycleMethod")
@@ -52,7 +53,7 @@ Public Sub getStops As List
 	For Each S As JavaObject In L
 		Dim ST As GLStop
 		ST.Initialize
-		ST.setObject(S)
+		ST.SetObject(S)
 		RL.Add(ST)
 	Next
 	Return RL
@@ -61,15 +62,12 @@ End Sub
 Public Sub IsProportional As Boolean
 	Return TJO.RunMethod("isProportional",Null)
 End Sub
-Public Sub getObject As Object
+Public Sub GetObject As Object
 	Return TJO
 End Sub
-Public Sub setObject(Obj As Object)
+Public Sub SetObject(Obj As Object)
 	TJO = Obj
 End Sub
 Public Sub getJavaObject As JavaObject
-	Return TJO
-End Sub
-Public Sub AsNode As Node
 	Return TJO
 End Sub

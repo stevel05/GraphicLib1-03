@@ -1,7 +1,8 @@
-﻿Type=Class
-Version=4.7
+﻿B4J=true
+Group=Default Group
 ModulesStructureVersion=1
-B4J=true
+Type=Class
+Version=5.51
 @EndOfDesignText@
 'Class Module
 Sub Class_Globals
@@ -54,6 +55,18 @@ End Sub
 Public Sub getWidth As Double
 	Return TJO.RunMethod("getWidth",Null)
 End Sub
+'Gets the value of the property height.
+Public Sub setHeight(Height As Double)
+	TJO.RunMethod("setHeight",Array(Height))
+End Sub
+'Gets the value of the property width.
+Public Sub setWidth(Width As Double)
+	TJO.RunMethod("setWidth",Array(Width))
+End Sub
+
+Public Sub getParent As Node
+	Return TJO.RunMethod("getParent",Null)
+End Sub
 'Gets the value of the property x.
 Public Sub getX As Double
 	Return TJO.RunMethod("getX",Null)
@@ -78,14 +91,6 @@ End Sub
 Public Sub setArcWidth(Value As Double)
 	TJO.RunMethod("setArcWidth",Array As Object(Value))
 End Sub
-'Sets the value of the property height.
-Public Sub setHeight(Value As Double)
-	TJO.RunMethod("setHeight",Array As Object(Value))
-End Sub
-'Sets the value of the property width.
-Public Sub setWidth(Value As Double)
-	TJO.RunMethod("setWidth",Array As Object(Value))
-End Sub
 'Sets the value of the property x.
 Public Sub setX(Value As Double)
 	TJO.RunMethod("setX",Array As Object(Value))
@@ -97,16 +102,18 @@ End Sub
 Public Sub getJavaObject As JavaObject
 	Return TJO
 End Sub
-Public Sub getObject As Object
+Public Sub GetObject As Object
 	Return TJO
 End Sub
-Public Sub setObject(Obj As Object)
+Public Sub SetObject(Obj As Object)
 	TJO = Obj
 End Sub
 Public Sub AsNode As Node
 	Return TJO
 End Sub
-
+Public Sub AsB4xView As B4XView
+	Return TJO
+End Sub
 'Inherited Methods
 
 'Gets the value of the property fill.
@@ -153,6 +160,12 @@ End Sub
 Public Sub setFill(Value As Object)
 	TJO.RunMethod("setFill",Array As Object(Value))
 End Sub
+Public Sub setLayoutX(X As Double)
+	TJO.RunMethod("setLayoutX",Array(X))
+End Sub
+Public Sub setLayoutY(Y As Double)
+	TJO.RunMethod("setLayoutY",Array(Y))
+End Sub
 'Sets the value of the property smooth.
 Public Sub setSmooth(Value As Boolean)
 	TJO.RunMethod("setSmooth",Array As Object(Value))
@@ -169,14 +182,14 @@ End Sub
 Public Sub setStrokeLineCap(Value As String)
 	Dim s As GLShape 
 	s.Initialize
-	s.setObject(TJO)
+	s.SetObject(TJO)
 	s.setStrokeLineCap(Value)
 End Sub
 'Sets the value of the property strokeLineJoin.
 Public Sub setStrokeLineJoin(Value As String)
 	Dim s As GLShape 
 	s.Initialize
-	s.setObject(TJO)
+	s.SetObject(TJO)
 	s.setStrokeLineJoin(Value)
 End Sub
 'Sets the value of the property strokeMiterLimit.
@@ -187,7 +200,7 @@ End Sub
 Public Sub setStrokeType(Value As String)
 	Dim s As GLShape 
 	s.Initialize
-	s.setObject(TJO)
+	s.SetObject(TJO)
 	s.setStrokeType(Value)
 End Sub
 'Sets the value of the property strokeWidth.
@@ -212,6 +225,15 @@ Public Sub Intersect(Shape1 As GLRectangle, Shape2 As GLRectangle) As GLShape
 	s.Initialize
 	Return s.Intersect(Shape1,Shape2)
 End Sub
+
+Public Sub Intersects(X As Double,Y As Double,Width As Double,Height As Double) As Boolean
+	Return TJO.RunMethod("intersects",Array(X,Y,Width,Height))
+End Sub
+
+Public Sub intersects2(localBounds As JavaObject) As Boolean
+	Return TJO.RunMethod("intersects",Array(localBounds))
+End Sub
+
 Sub setID(ID As String)
 	TJO.RunMethod("setId",Array(ID))
 End Sub
@@ -242,6 +264,6 @@ Public Sub getMinHeight As Int
 	Dim H As Double = -1
 	Return TJO.RunMethod("prefHeight",Array(H))
 End Sub
-Sub BringToFront
+Public Sub BringToFront
 	TJO.RunMethod("toFront",Null)
 End Sub

@@ -1,7 +1,8 @@
-﻿Type=Class
-Version=4.7
+﻿B4J=true
+Group=Default Group
 ModulesStructureVersion=1
-B4J=true
+Type=Class
+Version=5.51
 @EndOfDesignText@
 'Class Module
 Sub Class_Globals
@@ -63,7 +64,7 @@ Public Sub Intersect(Shape1 As Object, Shape2 As Object) As GLShape
 	Dim S As GLShape
 	Dim SJO As JavaObject
 	SJO.InitializeStatic("javafx.scene.shape.Shape")
-	S.setObject(SJO.RunMethod("intersect",Array As Object(S1.getObject, S2.getObject)))
+	S.SetObject(SJO.RunMethod("intersect",Array As Object(S1.GetObject, S2.GetObject)))
 	Return S
 	
 End Sub
@@ -122,7 +123,7 @@ Public Sub Subtract(Shape1 As Object, Shape2 As Object) As GLShape
 	Dim S As GLShape
 	Dim SJO As JavaObject
 	SJO.InitializeStatic("javafx.scene.shape.Shape")
-	S.setObject(SJO.RunMethod("subtract",Array As Object(S1.getObject, S2.getObject)))
+	S.SetObject(SJO.RunMethod("subtract",Array As Object(S1.GetObject, S2.GetObject)))
 	Return S
 End Sub
 'Returns a new Shape which is created as a union of the specified input shapes.
@@ -134,7 +135,7 @@ Public Sub Union(Shape1 As Object, Shape2 As Object) As GLShape
 	Dim S As GLShape
 	Dim SJO As JavaObject
 	SJO.InitializeStatic("javafx.scene.shape.Shape")
-	S.setObject(SJO.RunMethod("union",Array As Object(S1.getObject, S2.getObject)))
+	S.SetObject(SJO.RunMethod("union",Array As Object(S1.GetObject, S2.GetObject)))
 	Return S
 End Sub
 'Returns the GLArc, GlRect etc. as a GLShape object
@@ -145,68 +146,68 @@ Sub CastShape(Shape As Object) As GLShape
 			Dim A As GLArc = Shape
 			Dim S As GLShape
 			S.Initialize
-			S.setObject(A.getObject)
+			S.SetObject(A.GetObject)
 		
 		Case Shape Is GLArc
 			Dim C As GLCircle = Shape
 			Dim S As GLShape
 			S.Initialize
-			S.setObject(C.getObject)
+			S.SetObject(C.GetObject)
 		
 		Case Shape Is GLCubicCurve
 			Dim CC As GLCubicCurve = Shape
 			Dim S As GLShape
 			S.Initialize
-			S.setObject(CC.getObject)
+			S.SetObject(CC.GetObject)
 			
 		Case Shape Is GLEllipse
 			Dim E As GLEllipse = Shape
 			Dim S As GLShape
 			S.Initialize
-			S.setObject(E.getObject)
+			S.SetObject(E.GetObject)
 			
 		Case Shape Is GLLine
 			Dim L As GLLine = Shape
 			Dim S As GLShape
 			S.Initialize
-			S.setObject(L.getObject)
+			S.SetObject(L.GetObject)
 			
 		Case Shape Is GLPath
 			Dim P As GLPath = Shape
 			Dim S As GLShape
 			S.Initialize
-			S.setObject(P.getObject)
+			S.SetObject(P.GetObject)
 			
 		Case Shape Is GLPolygon
 			Dim PO As GLPolygon = Shape
 			Dim S As GLShape
 			S.Initialize
-			S.setObject(PO.getObject)
+			S.SetObject(PO.GetObject)
 			
 		Case Shape Is GLQuadCurve
 			Dim Q As GLQuadCurve = Shape
 			Dim S As GLShape
 			S.Initialize
-			S.setObject(Q.getObject)
+			S.SetObject(Q.GetObject)
 			
 		Case Shape Is GLRectangle
 			Dim R As GLRectangle = Shape
 			Dim S As GLShape
 			S.Initialize
-			S.setObject(R.getObject)
+			S.SetObject(R.GetObject)
 			
 		Case Shape Is GLSVGPath
 			Dim V As GLSVGPath = Shape
 			Dim S As GLShape
 			S.Initialize
-			S.setObject(V.getObject)
+			S.SetObject(V.GetObject)
 		
 		Case Shape Is GLText
 			Dim T As GLText = Shape
 			Dim S As GLShape
 			Dim S As GLShape
 			S.Initialize
-			S.setObject(T.getObject)
+			S.SetObject(T.GetObject)
 			
 	End Select
 	
@@ -228,13 +229,16 @@ Public Sub getMinHeight As Int
 	Dim H As Double = -1
 	Return TJO.RunMethod("prefHeight",Array(H))
 End Sub
-Public Sub getObject As Object
+Public Sub GetObject As Object
 	Return TJO
 End Sub
-Public Sub setObject(Obj As JavaObject)
+Public Sub SetObject(Obj As JavaObject)
 	TJO = Obj
 End Sub
 Public Sub AsNode As Node
+	Return TJO
+End Sub
+Public Sub AsB4xView As B4XView
 	Return TJO
 End Sub
 Public Sub getJavaObject As JavaObject
@@ -252,6 +256,6 @@ End Sub
 Sub getTag As Object
 	Return mTag
 End Sub
-Sub BringToFront
+Public Sub BringToFront
 	TJO.RunMethod("toFront",Null)
 End Sub

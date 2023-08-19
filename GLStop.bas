@@ -1,7 +1,8 @@
-﻿Type=Class
-Version=4.7
+﻿B4J=true
+Group=Default Group
 ModulesStructureVersion=1
-B4J=true
+Type=Class
+Version=5.51
 @EndOfDesignText@
 'Class Module
 Sub Class_Globals
@@ -15,7 +16,7 @@ End Sub
 Public Sub Initialize
 End Sub
 'Creates a new instance of Stop.
-Public Sub Create(Offset As Double, Color As Object)
+Public Sub Create(Offset As Double, Color As Paint)
 	Dim ColorJO As JavaObject = Color
 	Dim PColor As JavaObject
 	PColor.InitializeStatic("javafx.scene.paint.Color")
@@ -30,14 +31,11 @@ End Sub
 Public Sub getOffset As Double
 	Return TJO.RunMethod("getOffset",Null)
 End Sub
-Public Sub getObject As Object
+Public Sub GetObject As Object
 	Return TJO
 End Sub
-Public Sub setObject(Obj As Object)
+Public Sub SetObject(Obj As Object)
 	TJO = Obj
-End Sub
-Public Sub AsNode As Node
-	Return TJO
 End Sub
 Public Sub getJavaObject As JavaObject
 	Return TJO

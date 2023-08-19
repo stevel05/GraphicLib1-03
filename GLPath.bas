@@ -1,7 +1,8 @@
-﻿Type=Class
-Version=4.7
+﻿B4J=true
+Group=Default Group
 ModulesStructureVersion=1
-B4J=true
+Type=Class
+Version=5.51
 @EndOfDesignText@
 'Class Module
 Sub Class_Globals
@@ -24,20 +25,34 @@ Public Sub Create()
 	TJO.InitializeNewInstance("javafx.scene.shape.Path",Null)
 End Sub
 
-'Creates new instance of Path
-Public Sub Create2(Extends As JavaObject, Elements As JavaObject)
-	'If a JavaObject has been passed, you may need to create it here and remove the parameter
-	TJO.InitializeNewInstance("javafx.scene.shape.Path",Array As Object(Extends, Elements))
-End Sub
+''Creates new instance of Path
+'Public Sub Create2(Extends As JavaObject, Elements As JavaObject)
+'	'If a JavaObject has been passed, you may need to create it here and remove the parameter
+'	TJO.InitializeNewInstance("javafx.scene.shape.Path",Array As Object(Extends, Elements))
+'End Sub
 
 'Creates a new instance of Path
-Public Sub Create3(Elements As JavaObject)
+Public Sub Create2(Elements As List)
 	'If a JavaObject has been passed, you may need to create it here and remove the parameter
+	For i = 0 To Elements.Size - 1
+		Elements.Set(i,CallSub(Elements.Get(i),"GetObject"))
+	Next
 	TJO.InitializeNewInstance("javafx.scene.shape.Path",Array As Object(Elements))
 End Sub
 
+Public Sub AddElement(Element As Object)
+	getElementsNative.Add(CallSub(Element,"GetObject"))
+End Sub
+
+Public Sub AddElements(Elements As List)
+	For i = 0 To Elements.Size - 1
+		Elements.Set(i,CallSub(Elements.Get(i),"GetObject"))
+	Next
+	getElementsNative.AddAll(Elements)
+End Sub
+
 'Gets observable list of path elements of this path.
-Public Sub getElements As JavaObject
+Private Sub getElementsNative As List
 	Return TJO.RunMethod("getElements",Null)
 End Sub
 'Gets the value of the property fillRule.
@@ -50,13 +65,16 @@ Public Sub setFillRule(Value As String)
 	JO.InitializeStatic("javafx.scene.shape.FillRule")
 	TJO.RunMethod("setFillRule",Array As Object(JO.RunMethod("valueOf",Array(Value))))
 End Sub
-Public Sub getObject As Object
+Public Sub GetObject As Object
 	Return TJO
 End Sub
-Public Sub setObject(Obj As Object)
+Public Sub SetObject(Obj As Object)
 	TJO = Obj
 End Sub
 Public Sub AsNode As Node
+	Return TJO
+End Sub
+Public Sub AsB4xView As B4XView
 	Return TJO
 End Sub
 Public Sub getJavaObject As JavaObject
@@ -137,14 +155,14 @@ End Sub
 Public Sub setStrokeLineCap(Value As String)
 	Dim S As GLShape 
 	S.Initialize
-	S.setObject(TJO)
+	S.SetObject(TJO)
 	S.setStrokeLineCap(Value)
 End Sub
 'Sets the value of the property strokeLineJoin.
 Public Sub setStrokeLineJoin(Value As String)
 	Dim S As GLShape 
 	S.Initialize
-	S.setObject(TJO)
+	S.SetObject(TJO)
 	S.setStrokeLineJoin(Value)
 End Sub
 'Sets the value of the property strokeMiterLimit.
@@ -155,7 +173,7 @@ End Sub
 Public Sub setStrokeType(Value As String)
 	Dim S As GLShape 
 	S.Initialize
-	S.setObject(TJO)
+	S.SetObject(TJO)
 	S.setStrokeType(Value)
 End Sub
 'Sets the value of the property strokeWidth.
@@ -196,6 +214,6 @@ Public Sub getMinHeight As Int
 	Dim H As Double = -1
 	Return TJO.RunMethod("prefHeight",Array(H))
 End Sub
-Sub BringToFront
+Public Sub BringToFront
 	TJO.RunMethod("toFront",Null)
 End Sub

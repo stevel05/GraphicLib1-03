@@ -1,7 +1,8 @@
-﻿Type=Class
-Version=4.7
+﻿B4J=true
+Group=Default Group
 ModulesStructureVersion=1
-B4J=true
+Type=Class
+Version=5.51
 @EndOfDesignText@
 'Class Module
 Sub Class_Globals
@@ -70,13 +71,16 @@ End Sub
 Public Sub setRadius(Value As Double)
 	TJO.RunMethod("setRadius",Array As Object(Value))
 End Sub
-Public Sub getObject As Object
+Public Sub GetObject As Object
 	Return TJO
 End Sub
-Public Sub setObject(Obj As Object)
+Public Sub SetObject(Obj As Object)
 	TJO = Obj
 End Sub
 Public Sub AsNode As Node
+	Return TJO
+End Sub
+Public Sub AsB4xView As B4XView
 	Return TJO
 End Sub
 Public Sub getJavaObject As JavaObject
@@ -157,14 +161,14 @@ End Sub
 Public Sub setStrokeLineCap(Value As String)
 	Dim S As GLShape 
 	S.Initialize
-	S.setObject(TJO)
+	S.SetObject(TJO)
 	S.setStrokeLineCap(Value)
 End Sub
 'Sets the value of the property strokeLineJoin.
 Public Sub setStrokeLineJoin(Value As String)
 	Dim S As GLShape 
 	S.Initialize
-	S.setObject(TJO)
+	S.SetObject(TJO)
 	S.setStrokeLineJoin(Value)
 End Sub
 'Sets the value of the property strokeMiterLimit.
@@ -175,7 +179,7 @@ End Sub
 Public Sub setStrokeType(Value As String)
 	Dim S As GLShape 
 	S.Initialize
-	S.setObject(TJO)
+	S.SetObject(TJO)
 	S.setStrokeType(Value)
 End Sub
 'Sets the value of the property strokeWidth.
@@ -216,6 +220,6 @@ Public Sub getMinHeight As Int
 	Dim H As Double = -1
 	Return TJO.RunMethod("prefHeight",Array(H))
 End Sub
-Sub BringToFront
+Public Sub BringToFront
 	TJO.RunMethod("toFront",Null)
 End Sub
