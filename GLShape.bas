@@ -19,12 +19,12 @@ End Sub
 Public Sub Create
 	TJO.InitializeNewInstance("javafx.scene.shape.Shape",Null)
 End Sub
-'Gets the value of the property fill.
-Public Sub getFill As Object
+'Gets/Sets the value of the property fill.
+Public Sub getFill As Paint
 	Return TJO.RunMethod("getFill",Null)
 End Sub
-'Gets the value of the property stroke.
-Public Sub getStroke As JavaObject
+'Gets/Sets the value of the property stroke.
+Public Sub getStroke As Paint
 	Return TJO.RunMethod("getStroke",Null)
 End Sub
 'Defines the array representing the lengths of the dash segments.
@@ -73,7 +73,7 @@ Public Sub IsSmooth As Boolean
 	Return TJO.RunMethod("isSmooth",Null)
 End Sub
 'Sets the value of the property fill.
-Public Sub setFill(Value As Object)
+Public Sub setFill(Value As Paint)
 	TJO.RunMethod("setFill",Array As Object(Value))
 End Sub
 'Sets the value of the property smooth.
@@ -81,7 +81,7 @@ Public Sub setSmooth(Value As Boolean)
 	TJO.RunMethod("setSmooth",Array As Object(Value))
 End Sub
 'Sets the value of the property stroke.
-Public Sub setStroke(Value As JavaObject)
+Public Sub setStroke(Value As Paint)
 	TJO.RunMethod("setStroke",Array As Object(Value))
 End Sub
 'Sets the value of the property strokeDashOffset.
@@ -258,4 +258,11 @@ Sub getTag As Object
 End Sub
 Public Sub BringToFront
 	TJO.RunMethod("toFront",Null)
+End Sub
+
+Public Sub setTranslateX(Value As Double)
+	TJO.RunMethod("setTranslateX",Array(Value))
+End Sub
+Public Sub setTranslateY(Value As Double)
+	TJO.RunMethod("setTranslateY",Array(Value))
 End Sub

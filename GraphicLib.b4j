@@ -7,36 +7,39 @@ Library1=javaobject
 Library2=jcore
 Library3=jfx
 Library4=jxui
-Module1=GLArc
-Module10=GLLinearGradient
-Module11=GLLineTo
-Module12=GLMoveTo
-Module13=GLPath
-Module14=GLPolygon
-Module15=GLQuadCurve
-Module16=GLQuadCurveTo
-Module17=GLRadialGradient
-Module18=GLRectangle
-Module19=GLShape
-Module2=GLArcTo
-Module20=GLShape_Static
-Module21=GLStop
-Module22=GLSVGPath
-Module23=GLText
-Module24=GLVLineTo
-Module25=NewGL
-Module26=NewInstanceGL
-Module3=GLCircle
-Module4=GLClosePath
-Module5=GLCubicCurve
-Module6=GLCubicCurveTo
-Module7=GLEllipse
-Module8=GLHLineTo
-Module9=GLLine
+Module1=aaaIDELinks
+Module10=GLHLineTo
+Module11=GLLine
+Module12=GLLinearGradient
+Module13=GLLineTo
+Module14=GLMoveTo
+Module15=GLNew
+Module16=GLPath
+Module17=GLPolygon
+Module18=GLQuadCurve
+Module19=GLQuadCurveTo
+Module2=GL_Utils
+Module20=GLRadialGradient
+Module21=GLRectangle
+Module22=GLShape
+Module23=GLShape_Static
+Module24=GLStop
+Module25=GLSVGPath
+Module26=GLText
+Module27=GLVLineTo
+Module28=NewGL
+Module29=NewInstanceGL
+Module3=GLArc
+Module4=GLArcTo
+Module5=GLCircle
+Module6=GLClosePath
+Module7=GLCubicCurve
+Module8=GLCubicCurveTo
+Module9=GLEllipse
 NumberOfFiles=1
 NumberOfLibraries=4
-NumberOfModules=26
-Version=9.8
+NumberOfModules=29
+Version=10.2
 @EndOfDesignText@
 #Region  Project Attributes 
 	#MainFormWidth: 600
@@ -50,7 +53,6 @@ Version=9.8
 		Added classes required to use GLPath
 #end If
 
-'Archive Project Modules - before creating B4xLib'Archive Modules: ide://run?File=C:\Java\jdk1.8.0_271\bin\java.exe&Args=-jar&Args=C:\NoInstApps\B4j\ArchiveProjectModules\ArchiveProjectModules.jar&Args=%PROJECT%\%PROJECT_NAME%.b4j
 
 Sub Process_Globals
 	Private fx As JFX

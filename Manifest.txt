@@ -1,4 +1,6 @@
 Author=Stevel05
-Version=1.04
+Version=1.05
 Supported Platforms=B4j
 B4j.DependsOn=jXUI,JavaObject
+
+'{"comments":"","projectfolders":["D:\\AnywhereSoftware\\B4j\\JOLibs\\GraphicLib1-03"],"createdate":"2025-02-10:170510","lastupdated":"2025-04-29:153355","libtarget":"jGraphicLib-b4xlib"}

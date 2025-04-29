@@ -23,7 +23,7 @@ Public Sub Create
 	Tjo.InitializeNewInstance("javafx.scene.shape.LineTo",Null)
 End Sub
 
-'Creates a new isntance of LineTo.
+'Creates a new instance of LineTo.
 Public Sub Create2(X As Double, Y As Double)
 	'If a JavaObject has been passed, you may need to create it here and remove the parameter
 	Tjo.InitializeNewInstance("javafx.scene.shape.LineTo",Array As Object(X, Y))

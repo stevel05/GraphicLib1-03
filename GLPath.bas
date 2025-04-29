@@ -80,6 +80,13 @@ End Sub
 Public Sub getJavaObject As JavaObject
 	Return TJO
 End Sub
+Public Sub AsShape As GLShape
+	Dim Wrapper As GLShape
+	Wrapper.Initialize
+	Wrapper.SetObject(TJO)
+	Return Wrapper
+End Sub
+
 Sub setID(ID As String)
 	TJO.RunMethod("setId",Array(ID))
 End Sub
